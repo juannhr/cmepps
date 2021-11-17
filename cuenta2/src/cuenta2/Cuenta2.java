@@ -11,30 +11,31 @@ package cuenta2;
  */
 public class Cuenta2 {
 
- private int id, balance;
 
+    private int id, balance;
 
-    public Cuenta2(int id, int balance){
-
+    public Cuenta2(int id, int balance) {
         this.id = id;
         this.balance = balance;
 
     }
 
+    public void Withdraw(int x) throws Exception {
 
-   public void Withdraw(int x) throws Exception{
+        if ((this.balance - x) < -500) {
 
+            throw new Exception("No puedes retirar saldo");
+        }
 
+        this.balance -= x;
+    }
 
+    public void Deposit(int x) {
 
-   }
+        this.balance += x;
+    }
 
-   public void Deposit(int x){
-
-
-   }
-
-   public int getBalance(){
-       return 0;
-   }
+    public int getBalance() {
+        return this.balance;
+    }
 }
